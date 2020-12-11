@@ -1,0 +1,1 @@
+insert into address (id, street,state,city,country,zip) values(1,'av los alpistes 149','independencia','lima','Peru','510128')
