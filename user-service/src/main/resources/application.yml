@@ -1,3 +1,11 @@
+server:
+  error:
+    include-message: always #para que pueda ver los mensaje de error en postman
+    include-binding-errors: always
+  servlet:
+    context-path: /users
+  port: 8081
+ 
 spring:
   h2:
     console:

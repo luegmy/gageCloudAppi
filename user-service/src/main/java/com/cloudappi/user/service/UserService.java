@@ -1,18 +1,21 @@
 package com.cloudappi.user.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cloudappi.user.model.User;
 import com.cloudappi.user.repository.IUserRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class UserService implements IUserService {
 
-	@Autowired
-	IUserRepository userRepository;
+	//inyectamos mediante el constructor
+	final IUserRepository userRepository;
 
 	@Override
 	public List<User> getUsers() {
@@ -27,6 +30,11 @@ public class UserService implements IUserService {
 	@Override
 	public User getUserById(int id) {
 		return userRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public User updateUser(User user) {
+		return userRepository.save(user);
 	}
 
 	@Override
